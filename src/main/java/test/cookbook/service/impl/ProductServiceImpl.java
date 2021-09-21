@@ -30,10 +30,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product saveIdNotExist(Product product) {
-       if (getByName(product.getName()).isEmpty()) {
-          return repository.save(product);
-       }
-       return product;
+        return repository.save(product);
     }
-
 }

@@ -9,7 +9,8 @@ import test.cookbook.model.Recipe;
 
 @Repository
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-    @Query("select distinct r from Recipe r join fetch r.products where r.parentId=:parentId and r.id <:id ")
+    @Query("select distinct r from Recipe r join "
+            + "fetch r.products where r.parentId=:parentId and r.id <:id ")
     List<Recipe> findAllByParentId(Long parentId, Long id);
 
     @Query("select distinct r from Recipe r join fetch r.products")

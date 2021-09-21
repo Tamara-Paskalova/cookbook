@@ -35,7 +35,8 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe createAChild(Recipe recipe, List<Product> products, String name, String description) {
+    public Recipe createAChild(Recipe recipe, List<Product> products,
+                               String name, String description) {
         Recipe parent = repository.findByName(recipe.getName()).get();
         List<Product> childList = parent.getProducts();
         childList.addAll(products.stream()

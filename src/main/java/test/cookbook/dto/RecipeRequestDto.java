@@ -2,10 +2,8 @@ package test.cookbook.dto;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
-
 
 @Data
 public class RecipeRequestDto implements Serializable {

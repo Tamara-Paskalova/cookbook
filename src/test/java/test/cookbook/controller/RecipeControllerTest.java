@@ -84,7 +84,7 @@ class RecipeControllerTest {
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
-        RecipeResponseDto answer =objectMapper.readValue(json, RecipeResponseDto.class);
+        RecipeResponseDto answer = objectMapper.readValue(json, RecipeResponseDto.class);
         Assertions.assertEquals(response, answer);
     }
 
@@ -143,29 +143,29 @@ class RecipeControllerTest {
         String content = mockMvc.perform(post("/recipe/create-child")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(list)))
-               .andExpect(status().isOk())
-               .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse().getContentAsString();
         RecipeResponseDto expected = objectMapper.readValue(content, RecipeResponseDto.class);
         Assertions.assertEquals(getResponse("sugarFish"), expected);
     }
 
-    @Test
-//    void modify_Ok() throws Exception {
-//        RecipeRequestDto sugarFishRequest = getRequest("sugarFish");
-//        Recipe sugarFish = map.get("sugarFish");
-//        List<RecipeRequestDto> list = List.of(sugarFishRequest, sugarFishRequest);
-//        when(mapper.map(sugarFishRequest, Recipe.class)).thenReturn(sugarFish);
-//        when(mapper.map(sugarFish, RecipeResponseDto.class)).thenReturn(getResponse("sugarFish"));
-//        String content = mockMvc.perform(post("/recipe/modify")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(objectMapper.writeValueAsString(list)))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-//                .andReturn().getResponse().getContentAsString();
-//        RecipeResponseDto expected = objectMapper.readValue(content, RecipeResponseDto.class);
-//        Assertions.assertEquals(getResponse("sugarFish"), expected);
-//    }
+    /* @Test
+    void modify_Ok() throws Exception {
+        RecipeRequestDto sugarFishRequest = getRequest("sugarFish");
+        Recipe sugarFish = map.get("sugarFish");
+        List<RecipeRequestDto> list = List.of(sugarFishRequest, sugarFishRequest);
+        when(mapper.map(sugarFishRequest, Recipe.class)).thenReturn(sugarFish);
+        when(mapper.map(sugarFish, RecipeResponseDto.class)).thenReturn(getResponse("sugarFish"));
+        String content = mockMvc.perform(post("/recipe/modify")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(list)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse().getContentAsString();
+        RecipeResponseDto expected = objectMapper.readValue(content, RecipeResponseDto.class);
+        Assertions.assertEquals(getResponse("sugarFish"), expected);
+    } */
 
     private RecipeRequestDto getRequest(String recipeName) {
         Recipe recipe = map.get(recipeName);

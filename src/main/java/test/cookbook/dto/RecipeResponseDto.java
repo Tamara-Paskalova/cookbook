@@ -8,6 +8,6 @@ import lombok.Data;
 public class RecipeResponseDto implements Serializable {
     private String name;
     private String description;
-    private String  date;
+    private String date;
     private List<ProductDto> products;
 }

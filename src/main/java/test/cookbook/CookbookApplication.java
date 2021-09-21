@@ -1,7 +1,5 @@
 package test.cookbook;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.modelmapper.ModelMapper;
@@ -74,9 +72,10 @@ public class CookbookApplication {
             // save a child
             List<Product> childList = new ArrayList<>();
             childList.add(milk);
-            Recipe child = recipeService.createAChild(friedChicken, childList, "Fried Chicken With Milk",
+            Recipe child = recipeService.createAChild(friedChicken, childList,
+                    "Fried Chicken With Milk",
                     "First do that, than do that, than do the first again");
-                    System.out.println(child);
+            System.out.println(child);
             recipeService.getAll().forEach(System.out::println);
 
             System.out.println("*********************________*******************");
